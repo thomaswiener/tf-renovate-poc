@@ -1,33 +1,27 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:base",
+    "terraform:providers"
   ],
-  "platformAutomerge": true,
+  "platform": "github",
+  "githubHost": "https://github.com",
+  "automerge": true,
+  "automergeType": "pr",
+  "automergeStrategy": "merge",
+  "dependencyDashboard": true,
+  "schedule": ["before 3am on monday"],
   "packageRules": [
     {
-      "matchManagers": [
-        "terraform"
-      ],
-      "matchPackageNames": [
-        "hashicorp/aws"
-      ],
+      "matchManagers": ["terraform"],
+      "matchPackageNames": ["hashicorp/aws", "hashicorp/azurerm"],
       "enabled": true,
-      "schedule": [
-        "before 3am on monday"
-      ]
+      "schedule": ["before 3am on monday"]
     },
     {
-      "matchManagers": [
-        "terraform"
-      ],
-      "matchPackageNames": [
-        "hashicorp/azurerm"
-      ],
+      "matchManagers": ["terraform"],
+      "matchPackageNames": ["hashicorp/google"],
       "enabled": true,
-      "schedule": [
-        "before 3am on monday"
-      ]
+      "schedule": ["before 3am on tuesday"]
     }
   ]
 }
