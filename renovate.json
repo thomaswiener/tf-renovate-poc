@@ -1,0 +1,30 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json"
+  "extends": [
+    "config:base",
+    "terraform:modules",
+    "terraform:providers"
+  ],
+  "platformAutomerge": true,
+  "packageRules": [
+    {
+      "matchManagers": ["terraform"],
+      "matchPackageNames": ["hashicorp/aws"],
+      "enabled": true,
+      "schedule": ["before 3am on monday"]
+    },
+    {
+      "matchManagers": ["terraform"],
+      "matchPackageNames": ["hashicorp/azurerm"],
+      "enabled": true,
+      "schedule": ["before 3am on monday"]
+    }
+  ],
+  "versioning": {
+    "terraform": {
+      "matchPackageNames": ["hashicorp/aws", "hashicorp/azurerm"],
+      "rangeStrategy": "increase",
+      "enabled": true
+    }
+  }
+}
