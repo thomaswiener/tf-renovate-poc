@@ -1,6 +1,6 @@
 {
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
   "packageRules": [
     {
@@ -15,7 +15,7 @@
     },
     {
       "groupName": "terraform",
-      "managers": [
+      "matchManagers": [
         "terraform"
       ],
       "matchUpdateTypes": [
