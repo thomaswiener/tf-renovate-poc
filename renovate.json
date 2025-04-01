@@ -1,5 +1,5 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base",
     "terraform:modules",
@@ -8,21 +8,36 @@
   "platformAutomerge": true,
   "packageRules": [
     {
-      "matchManagers": ["terraform"],
-      "matchPackageNames": ["hashicorp/aws"],
+      "matchManagers": [
+        "terraform"
+      ],
+      "matchPackageNames": [
+        "hashicorp/aws"
+      ],
       "enabled": true,
-      "schedule": ["before 3am on monday"]
+      "schedule": [
+        "before 3am on monday"
+      ]
     },
     {
-      "matchManagers": ["terraform"],
-      "matchPackageNames": ["hashicorp/azurerm"],
+      "matchManagers": [
+        "terraform"
+      ],
+      "matchPackageNames": [
+        "hashicorp/azurerm"
+      ],
       "enabled": true,
-      "schedule": ["before 3am on monday"]
+      "schedule": [
+        "before 3am on monday"
+      ]
     }
   ],
   "versioning": {
     "terraform": {
-      "matchPackageNames": ["hashicorp/aws", "hashicorp/azurerm"],
+      "matchPackageNames": [
+        "hashicorp/aws",
+        "hashicorp/azurerm"
+      ],
       "rangeStrategy": "increase",
       "enabled": true
     }
