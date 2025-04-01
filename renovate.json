@@ -1,27 +1,28 @@
 {
   "extends": [
-    "config:base",
-    "terraform:providers"
+    "config:base"
   ],
-  "platform": "github",
-  "githubHost": "https://github.com",
-  "automerge": true,
-  "automergeType": "pr",
-  "automergeStrategy": "merge",
-  "dependencyDashboard": true,
-  "schedule": ["before 3am on monday"],
   "packageRules": [
     {
-      "matchManagers": ["terraform"],
-      "matchPackageNames": ["hashicorp/aws", "hashicorp/azurerm"],
-      "enabled": true,
-      "schedule": ["before 3am on monday"]
+      "automerge": true,
+      "matchUpdateTypes": [
+        "patch",
+        "pin",
+        "digest",
+        "minor",
+        "major"
+      ]
     },
     {
-      "matchManagers": ["terraform"],
-      "matchPackageNames": ["hashicorp/google"],
-      "enabled": true,
-      "schedule": ["before 3am on tuesday"]
+      "groupName": "terraform",
+      "managers": [
+        "terraform"
+      ],
+      "matchUpdateTypes": [
+        "minor"
+      ]
     }
-  ]
+  ],
+  "separateMinorPatch": true,
+  "timezone": "America/Los_Angeles"
 }
